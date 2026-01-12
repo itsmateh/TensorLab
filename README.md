@@ -1,4 +1,4 @@
-# Tensor Zero
+# 🐣Tensor Zero
 
 A Rust-based tensor operations library built from scratch. This project aims to provide fundamental tensor manipulations and mathematical operations for numerical computing.
 
@@ -47,7 +47,7 @@ let tensor_b = Tensor::new(&data, &shape).unwrap();
 let result = (&tensor_a + &tensor_b).unwrap(); // Operator overloading
 ```
 
-## 🎯 Roadmap
+## Roadmap
 
 - [ ] Additional arithmetic operations (subtraction, multiplication, division)
 - [ ] Matrix multiplication
