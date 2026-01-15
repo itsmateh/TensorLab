@@ -1,6 +1,6 @@
-use tensor_zero::Tensor;
+use tensorlab::Tensor;
 fn main(){
-    println!("tensor zero, the tensor operations project!");
+    println!("TensorLab, the tensor operations project!");
 
     // let data=vec![1.0, 2.0, 3.0, 4.0];
     // let shape=vec![2,2]; 
