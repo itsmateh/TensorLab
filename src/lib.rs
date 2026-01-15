@@ -58,6 +58,9 @@ impl Tensor {
     pub fn data(&self) -> &Vec<f32> {
         &self.data
     }
+    pub fn shape(&self) -> &Vec<usize> {
+        &self.shape
+    }
 
     pub fn add(&self, other_tensor: &Tensor) -> Result<Tensor, Error> {
         if self.shape != other_tensor.shape {
