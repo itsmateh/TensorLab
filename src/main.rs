@@ -1,6 +1,7 @@
 use tensorlab::Tensor;
 use std::time::Instant;
 fn main(){
+fn main() {
     println!("TensorLab, the tensor operations project!");
     // println!("matmul benchmark:");
     // let size = 4096; 
@@ -9,6 +10,10 @@ fn main(){
     // let data_a = vec![1.0; size * size];
     // let data_b = vec![1.0; size * size];
     // let shape = vec![size, size];
+
+    // Example usage (commented out):
+    // let data = vec![1.0, 2.0, 3.0, 4.0];
+    // let shape = vec![2, 2];
 
     // let a = Tensor::new(&data_a, &shape).unwrap();
     // let b = Tensor::new(&data_b, &shape).unwrap();
@@ -52,3 +57,10 @@ fn main(){
     // println!("\n--- Final Truth ---");
     // println!("Rayon vs IKJ Serial:   {:.2}x faster", t_ikj / t_par_ikj);
 }
+    // let tensor_1 = Tensor::new(&data, &shape).unwrap();
+    // let tensor_2 = Tensor::new(&data, &shape).unwrap();
+    // let tensor_3 = (&tensor_1 + &tensor_2).unwrap();
+    // let tensor_4 = (&tensor_1 - &tensor_2).unwrap();
+    // let tensor_5 = (&tensor_1 * &tensor_2).unwrap();
+}
+
