@@ -48,15 +48,31 @@ let result = x.matmul(&y).unwrap(); // Shape: [2, 2]
 ```
 
 ## 🏗️ Project Structure
+
 ```
-tensor_zero/
+tensorlab/
 ├── src/
-│   ├── lib.rs                    # Core tensor implementation
+│   ├── lib.rs                    # Public API and module declarations
+│   ├── error.rs                  # Error types and Display implementation
+│   ├── tensor.rs                 # Tensor struct and core operations
+│   ├── operations.rs             # Operator trait implementations
 │   └── main.rs                   # Example usage
 ├── tests/
-│   └── integration_test.rs       # Test suite
-└── Cargo.toml
+│   └── integration_test.rs       # Comprehensive test suite
+├── Cargo.toml                    # Project manifest
+└── README.md                     # This file
 ```
+
+### Module Breakdown
+
+- **`error.rs`**: Defines the `Error` enum for shape mismatches and invalid operations
+- **`tensor.rs`**: Core `Tensor` struct with methods for:
+  - Construction and element access
+  - Element-wise operations (add, sub, mul)
+  - Scalar multiplication
+  - Matrix multiplication
+- **`operations.rs`**: Implements `Add`, `Sub`, and `Mul` traits for ergonomic operator usage
+- **`lib.rs`**: Consolidates and re-exports public API
 
 ## 🧪 Testing
 ```bash

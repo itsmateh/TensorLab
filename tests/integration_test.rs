@@ -1,4 +1,4 @@
-use tensorlab::{Tensor, Error};
+use tensorlab::Tensor;
 
 fn create_tensor(data: Vec<f32>, shape: Vec<usize>) -> Tensor {
     Tensor::new(&data, &shape).unwrap()
