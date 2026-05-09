@@ -8,11 +8,11 @@
 
 A learning-focused Rust tensor library for exploring linear algebra operations. Built from scratch as a hands-on approach to understanding matrix mathematics and numerical computing.
 
-## 🎯 Project Goal
+## Project Goal
 
 This library serves as a practical companion to learning linear algebra. Each operation is implemented manually to understand the underlying mechanics of tensor computations.
 
-## ✨ Current Features
+## Current Features
 
 ### Core Operations
 - **Element-wise operations**: Addition, subtraction, Hadamard product (element-wise multiplication)
@@ -25,7 +25,7 @@ This library serves as a practical companion to learning linear algebra. Each op
 - Element access via coordinates
 - Comprehensive error handling
 
-## 📖 Quick Start
+## Quick Start
 ```rust
 use tensor_zero::Tensor;
 
@@ -51,7 +51,12 @@ let result = x.matmul(&y).unwrap(); // Shape: [2, 2]
 
 ```
 tensorlab/
+tensorlab/
 ├── src/
+│   ├── lib.rs                    # Public API and module declarations
+│   ├── error.rs                  # Error types and Display implementation
+│   ├── tensor.rs                 # Tensor struct and core operations
+│   ├── operations.rs             # Operator trait implementations
 │   ├── lib.rs                    # Public API and module declarations
 │   ├── error.rs                  # Error types and Display implementation
 │   ├── tensor.rs                 # Tensor struct and core operations
@@ -74,14 +79,25 @@ tensorlab/
 - **`operations.rs`**: Implements `Add`, `Sub`, and `Mul` traits for ergonomic operator usage
 - **`lib.rs`**: Consolidates and re-exports public API
 
-## 🧪 Testing
+### Module Breakdown
+
+- **`error.rs`**: Defines the `Error` enum for shape mismatches and invalid operations
+- **`tensor.rs`**: Core `Tensor` struct with methods for:
+  - Construction and element access
+  - Element-wise operations (add, sub, mul)
+  - Scalar multiplication
+  - Matrix multiplication
+- **`operations.rs`**: Implements `Add`, `Sub`, and `Mul` traits for ergonomic operator usage
+- **`lib.rs`**: Consolidates and re-exports public API
+
+## Testing
 ```bash
 cargo test
 ```
 
 All operations include integration tests covering both valid operations and error cases.
 
-## 🚀 Roadmap
+## Roadmap
 
 **Next Steps:**
 - [X] Matrix transpose
@@ -94,7 +110,7 @@ All operations include integration tests covering both valid operations and erro
 - [ ] Reshape and view operations
 - [ ] Advanced linear algebra (inverse, determinant, SVD)
 
-## 🔧 Technical Details
+## Technical Details
 
 - **Storage**: Flat `Vec<f32>` with row-major ordering
 - **Operations**: Iterator-based functional style
