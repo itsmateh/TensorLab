@@ -75,6 +75,8 @@ fn test_matmul_invalid_shapes() {
     assert!(result.is_err());
 }
 
+// ===== Transpose
+
 #[test]
 fn test_matmul_identity() {
     let a = create_tensor(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2]);    
@@ -128,14 +130,15 @@ fn test_matmul_rectangular_complex() {
 #[test]
 fn test_transpose_rectangular(){
     let tens = create_tensor(vec![1.,3.,5.,2.,4.,6.], vec![2,3]);
-    let tens_trans=tens.transpose();
+    let tens_trans = tens.transpose_naive().unwrap();
     assert_eq!(tens_trans.shape(), &vec![3,2]);
     assert_eq!(tens_trans.data(), &vec![1.,2.,3.,4.,5.,6.]);
 }
+
 #[test]
 fn test_transpose_identity() {
     let t = create_tensor(vec![1., 0., 0., 1.], vec![2, 2]);
-    let t_t = t.transpose();
+    let t_t = t.transpose_naive().unwrap();
     assert_eq!(t_t.data(), t.data());
     assert_eq!(t_t.shape(), t.shape());
 }
@@ -143,7 +146,7 @@ fn test_transpose_identity() {
 #[test]
 fn test_transpose_vector_row_to_col() {
     let t = create_tensor(vec![1., 2., 3., 4.], vec![1, 4]);
-    let t_t = t.transpose();
+    let t_t = t.transpose_naive().unwrap();
     assert_eq!(t_t.shape(), &vec![4, 1]);
     assert_eq!(t_t.data(), &vec![1., 2., 3., 4.]);
 }
@@ -151,7 +154,7 @@ fn test_transpose_vector_row_to_col() {
 #[test]
 fn test_transpose_double() {
     let t = create_tensor(vec![1., 2., 3., 4., 5., 6.], vec![2, 3]);
-    let t_final = t.transpose().transpose();
+    let t_final = t.transpose_naive().unwrap().transpose_naive().unwrap();
     assert_eq!(t_final.data(), t.data());
     assert_eq!(t_final.shape(), t.shape());
 }
@@ -159,7 +162,8 @@ fn test_transpose_double() {
 #[test]
 fn test_transpose_symmetry() {
     let t = create_tensor(vec![1., 2., 3., 4.], vec![2, 2]);
-    let t_t = t.transpose();
+    let t_t = t.transpose_naive().unwrap();
     assert_eq!(t_t.data()[1], 3.0);
     assert_eq!(t_t.data()[2], 2.0);
 }
+
